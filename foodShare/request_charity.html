@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Request Food</title>
+    <script src="https://www.gstatic.com/firebasejs/3.7.5/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+
+</head>
+<body>
+
+<div class="div">
+    <h2>Request Food</h2>
+
+    <input id="meals" name="meals" placeholder="Number of meals needed">
+    <button id="sumbit" class="button" type="button" onclick="location.href='http://foodshare.sites.tjhsst.edu/confirm_charity.html';">Submit Request</button>
+
+    <script>
+        function action() {
+            var array = new Array;
+            array.push(document.getElementById("username").value);
+            array.push(document.getElementById("password").value);
+        }
+    </script>
+
+</div>
+
+<style>
+    body {
+        background:  #008080;
+    }
+    h2{
+        color: white;
+    }
+    div {
+        margin: 0;
+        padding: 0;
+        font-family:"Futura";
+        background: #d2b48c;
+        border-radius: 5px;
+        text-align: center;
+    }
+    .div {
+        width: 450px;
+        overflow: hidden;
+        margin: auto;
+        margin-top: 150px;
+        padding: 20px;
+    }
+    .div input {
+        width: 400px;
+        height: 35px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        padding: 2px;
+        background: #ffffff;
+    }
+    .div button {
+        background-color: transparent;
+        border-color:black;
+        font-family:"Futura";
+        font-size: 20px;
+        width: 200px;
+        height: 30px;
+        border-radius: 5px;
+    }
+    .div button:hover {
+        background-color: #00cfe6;
+    }
+    .div a {
+        background-color: transparent;
+        border-color: black;
+        font-family: "Futura";
+        font-size: 20px;
+        width: 200px;
+        height: 30px;
+        border-radius: 7px;
+    }
+    .div a:hover {
+        background-color: #00cfe6;
+    }
+</style>

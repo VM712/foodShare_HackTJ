@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title></title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+      .marker {
+      background-image: url('Safeway.png');
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+    </style>
+</head>
+<body>
+
+<div id='map'></div>
+<script>
+
+mapboxgl.accessToken = 'pk.eyJ1Ijoicm9ucmFucTEyMyIsImEiOiJjamVsdnFvbXIxamdvMnFuNXR3cThiZXA5In0.tAM39DRNcN9ohYIfeDC06Q';
+
+var geojson = {
+    "type": "FeatureCollection",
+    "features": [{
+         "type": "Feature",
+         "geometry": {
+             "type": "Point",
+             "coordinates": [-77.017313, 38.877602]
+         },
+         "properties": {
+             "title": "Safeway",
+             "description": "375 M St SW, Washington, DC 20024, USA",
+             "meals": "Number of Available Meals: 64"
+         }
+     },
+     {
+         "type": "Feature",
+         "geometry": {
+         "type": "Point",
+         "coordinates": [ -77.053024, 38.904093]
+        },
+         "properties": {
+             "title": "Trader-Joes",
+             "description": "1101 25th St NW, Washington, DC 20037, USA",
+             "meals": "Number of Available Meals : 82"
+         }
+     },
+     {
+         "type": "Feature",
+         "geometry": {
+         "type": "Point",
+         "coordinates": [-77.033508, 38.909285]
+        },
+         "properties": {
+             "title": "Whole-Foods",
+             "description": "1429 Rhode Island Ave NW, Washington, DC 20005, USA",
+             "meals": "Number of Available Meals: 36"
+         }
+     },
+     {
+         "type": "Feature",
+         "geometry": {
+         "type": "Point",
+         "coordinates": [ -77.028294, 38.963199]
+        },
+         "properties": {
+             "title": "Catholic-Charities-USA",
+             "description": "6008 US-29, Washington, DC 20011, USA",
+             "meals": "Number of Meals Needed: 93"
+         }
+         },
+         {
+         "type": "Feature",
+         "geometry": {
+         "type": "Point",
+         "coordinates": [-76.985863,  38.935965 ]
+        },
+         "properties": {
+             "title": "Ronald-McDonald-House-Charities",
+             "description": "1340 Perry St NE, Washington, DC 20017, USA",
+             "meals": "Number of Meals Needed: 76 "
+         }
+         }
+         ,
+         {
+         "type": "Feature",
+         "geometry": {
+         "type": "Point",
+         "coordinates": [-77.047473,  38.906745 ]
+        },
+         "properties": {
+             "title": "Habitat-for-Humanity",
+             "description": " Conn Park LLC, 2101 N St NW # T1, Washington, DC 20037, USA",
+             "meals" : "Number of Meals Needed: 100"
+         }
+
+     }]
+};
+
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/ronranq123/cjemhlongb7372qqqw0cqnf9r',
+    center: [-77.0369, 38.9072],
+    zoom: 11.5
+});
+
+// add markers to map
+geojson.features.forEach(function(marker) {
+
+var image = marker.properties.title + ".png";
+console.log(image)
+
+
+    // create a HTML element for each feature
+    var el = document.createElement('div');
+    el.className = 'marker';
+    el.style.backgroundImage = "url('" + image + "')";
+
+    // make a marker for each feature and add it to the map
+    new mapboxgl.Marker(el)
+        .setLngLat(marker.geometry.coordinates)
+        .setPopup(new mapboxgl.Popup({offset: 25}) // add popups
+            .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '<br/>' + marker.properties.meals  + '</p>'))
+        .addTo(map);
+});
+
+</script>
+
+</body>
+</html>

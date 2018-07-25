@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Register Company</title>
+
+    <script src="https://www.gstatic.com/firebasejs/3.7.5/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+
+</head>
+<body>
+
+
+<div class="div">
+    <h2 style="colour: white">Register as a Company for FoodShare</h2>
+    <input id="charity" name="charity" placeholder="Name of Company">
+    <input id="first" name="first" placeholder="First Name of Respresentative">
+    <input id="last" name="last" placeholder="Last Name of Representative">
+    <input id="email" name="email" placeholder="Email Address">
+    <input id="address" name="address" placeholder="Address of Company">
+    <input type = "password" id="password" name="password" placeholder="Password">
+    <input type = "password" id="retype" name="password" placeholder="Retype Password">
+    <button id="signup" class="button" type="button" onclick="location.href='http://foodshare.sites.tjhsst.edu/logged_in_company.html';">Create an Account</button>
+
+</div>
+
+<style>
+    body {
+        background: #008080;
+    }
+    h2{
+        color: white;
+    }
+    div {
+        margin: 0;
+        padding: 0;
+        font-family:"Futura";
+        background: #d2b48c;
+        border-radius: 5px;
+        text-align: center;
+    }
+    div {
+        width: 450px;
+        overflow: hidden;
+        margin: auto;
+        margin-top: 50px;
+        padding: 20px;
+    }
+    .div input {
+        width: 400px;
+        height: 35px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        padding: 2px;
+        background: #ffffff;
+    }
+    button {
+        background-color: transparent;
+        border-color:black;
+        font-family:"Futura";
+        font-size: 20px;
+        width: 200px;
+        height: 30px;
+        border-radius: 5px;
+    }
+    .div button:hover {
+        background-color: #00cfe6;
+    }
+</style>
+</body>
+</html>
